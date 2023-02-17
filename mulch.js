@@ -34,7 +34,7 @@ function findPrice(bags, price){
 }
 function betterNumber(number) {
     return Math.round(number * 100) / 100;
-  }
+}
 
 exampleInput();
 volumeCbYd = findVolumeSqYd(lengthFt, widthFt, depthIn);
@@ -44,4 +44,4 @@ totalPrice = findPrice(numberBags, bagPriceUSD)
 console.log("You said your space is " + lengthFt + " feet long, " + widthFt + " feet wide, and " + depthIn + " inches deep.");
 console.log("The volume of that space is " + betterNumber(volumeCbYd) + " cubic yards.");
 console.log("You need to buy " + numberBags + " bags, as they cover " + bagSizeCbYd + " cubic yards each.");
-console.log("At $" + bagPriceUSD + " USD a bag, this will cost $" + totalPrice + ".");
+console.log("At $" + bagPriceUSD + " a bag, this will cost $" + totalPrice + ".");
