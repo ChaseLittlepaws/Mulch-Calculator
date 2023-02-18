@@ -1,5 +1,10 @@
+//
+
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" href="styles.css">
+</head>
 <body>
 
 <h1>Mulch Calculator</h1>
