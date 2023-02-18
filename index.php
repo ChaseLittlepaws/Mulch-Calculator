@@ -25,14 +25,14 @@
 <script>
 
 //input
-var lengthFt;
-var widthFt;
-var depthIn;
+let lengthFt;
+let widthFt;
+let depthIn;
 
 // output
-var volumeCbYd;
-var numberBags;
-var totalPrice;
+let volumeCbYd;
+let numberBags;
+let totalPrice;
 
 // const vars
 const covertSqFt = 27;
@@ -45,8 +45,8 @@ function setInput(length, width, depth) {
     depthIn = document.getElementById("depth").value;
 }
 function findVolumeSqYd(length, width, depthIn) {
-    var depthFt = depthIn / 12;
-    var volumeSqFt = length * width * depthFt;
+    let depthFt = depthIn / 12;
+    let volumeSqFt = length * width * depthFt;
     return  volumeSqFt / covertSqFt;
 }
 function findBags(volume, bagSize) {
@@ -58,8 +58,13 @@ function findPrice(bags, price){
 function betterNumber(number) {
     return Math.round(number * 100) / 100;
 }
+function invalidateInput () {
+    document.getElementById("outputHeader").hidden = true;
+    document.getElementById("bookmarkPrompt").hidden = true
+    document.getElementById("outputPara").innerHTML = "Please enter values greater than zero for all inputs.";
+}
 function getText () {
-    var resultsText = "Thank you for using our calculator. ";
+    let resultsText = "Thank you for using our calculator. ";
     resultsText += "You said your space is " + lengthFt + " feet long, " + widthFt + " feet wide, and " + depthIn + " inches deep. ";
     resultsText += "The volume of that space is " + betterNumber(volumeCbYd) + " cubic yards. ";
     resultsText += "You need to buy " + numberBags + " bags, as they cover " + bagSizeCbYd + " cubic yards each. ";
@@ -68,12 +73,17 @@ function getText () {
     document.getElementById("bookmarkPrompt").hidden = false
     return resultsText;
 }
+
 function calculator() {
     setInput();
-    volumeCbYd = findVolumeSqYd(lengthFt, widthFt, depthIn);
-    numberBags = findBags(volumeCbYd, bagSizeCbYd);
-    totalPrice = findPrice(numberBags, bagPriceUSD)
-    document.getElementById("outputPara").innerHTML = getText();
+    if (lengthFt > 0 && widthFt > 0 && depthIn > 0) {
+        volumeCbYd = findVolumeSqYd(lengthFt, widthFt, depthIn);
+        numberBags = findBags(volumeCbYd, bagSizeCbYd);
+        totalPrice = findPrice(numberBags, bagPriceUSD)
+        document.getElementById("outputPara").innerHTML = getText();
+    } else {
+        invalidateInput();
+    }
 }
 
 </script>
