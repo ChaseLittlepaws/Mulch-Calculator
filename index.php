@@ -16,7 +16,7 @@
     <input type="button" value="Calculate!" onclick="calculator()">
 </form>
 
-<h2 id="outputHeader"></h2>
+<h2 hidden id="outputHeader">Here are your results</h2>
 
 <p id="outputPara"></p>
 
@@ -60,11 +60,11 @@ function betterNumber(number) {
 }
 function getText () {
     var resultsText = "Thank you for using our calculator. ";
-    resultsText += "You said your space is " + lengthFt + " feet long, " + widthFt + " feet wide, and " + depthIn + " inches deep.";
-    resultsText += "The volume of that space is " + betterNumber(volumeCbYd) + " cubic yards.";
+    resultsText += "You said your space is " + lengthFt + " feet long, " + widthFt + " feet wide, and " + depthIn + " inches deep. ";
+    resultsText += "The volume of that space is " + betterNumber(volumeCbYd) + " cubic yards. ";
     resultsText += "You need to buy " + numberBags + " bags, as they cover " + bagSizeCbYd + " cubic yards each. ";
-    resultsText += "At $" + bagPriceUSD + " a bag, this will cost $" + totalPrice + ".";
-    document.getElementById("outputHeader").innerHTML = "Here are your results!"
+    resultsText += "At $" + bagPriceUSD + " a bag, this will cost $" + betterNumber(totalPrice) + ". ";
+    document.getElementById("outputHeader").hidden = false;
     document.getElementById("bookmarkPrompt").hidden = false
     return resultsText;
 }
