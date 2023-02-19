@@ -83,7 +83,7 @@ function validateInput () {
         document.getElementById("button").style.cursor = "not-allowed"
         document.getElementById("outputHeader").hidden = true;
         document.getElementById("bookmarkPrompt").hidden = true;
-        document.getElementById("outputPara").innerHTML = "Please enter values greater than zero for all inputs.";
+        document.getElementById("outputOne").innerHTML = "Please enter values greater than zero for all inputs.";
         console.log("Invalid data" + lengthFt + widthFt + depthIn);
         return false;
     }
