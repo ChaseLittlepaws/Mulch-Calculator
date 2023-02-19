@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+<div>
 <h1>Mulch Calculator</h1>
 
 <h2>Input</h2>
@@ -28,7 +28,7 @@
 <p id="outputPara"></p>
 
 <p hidden id="bookmarkPrompt">Feel free to bookmark this page! You can come back to these calculations any time!</p>
-
+</div>
 <script>
 
 //input
@@ -68,18 +68,19 @@ function betterNumber(number) {
 function validateInput () {
     setInput();
     if (lengthFt > 0 && widthFt > 0 && depthIn > 0) {
-        document.getElementById("buttom").innerHTML = "yeah";
-        document.getElementById("button").disabled = false;
+        document.getElementById("button").value = "Calculate!";
+        document.getElementById("button").style.opacity = "1";
+        console.log("Valid data." + lengthFt + widthFt + depthIn);
+        return true;
     } else {
+        document.getElementById("button").value = "Invald input";
+        document.getElementById("button").style.opacity = "0.25";
         document.getElementById("outputHeader").hidden = true;
         document.getElementById("bookmarkPrompt").hidden = true;
-        document.getElementById("button").disabled = true;
         document.getElementById("outputPara").innerHTML = "Please enter values greater than zero for all inputs.";
+        console.log("Invalid data" + lengthFt + widthFt + depthIn);
+        return false;
     }
-}
-
-function invalidateInput () {
-   
 }
 function getText () {
     let resultsText = "Thank you for using our calculator. ";
@@ -93,13 +94,14 @@ function getText () {
 }
 function calculator() {
     setInput();
-    if (lengthFt > 0 && widthFt > 0 && depthIn > 0) {
+    validateInput();
+    if (validateInput()) {
         volumeCbYd = findVolumeSqYd(lengthFt, widthFt, depthIn);
         numberBags = findBags(volumeCbYd, bagSizeCbYd);
         totalPrice = findPrice(numberBags, bagPriceUSD)
         document.getElementById("outputPara").innerHTML = getText();
     } else {
-        invalidateInput();
+        console.log("Invalid data.");
     }
 }
 

@@ -6,30 +6,43 @@ Chase Tramel aka Kasey Chase Littlepaws | https://github.com/ChaseLittlepaws
 
 body {
     margin: 0;
-    font-family: "Atkinson Hyperlegible", sans-serif;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    src: https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
 }
 
-input {
-    width: 33%;
+label {
+    padding: 6px 10px;
+    margin: auto;
+    display: block;
+    width: 50%; 
+}
+
+input{
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: auto;
     box-sizing: border-box;
     border-radius: 12px;
+    display: block;
+    width: 50%;
 }
 
 input:focus {
     border: 5px solid #a7a7a7;
 }
 
-input[type=button]{
-    background-color: #5bb8ff;
-    width: 33%;
+input[type=button] {
+    background-color: #4b9fe3;
     border: none;
     border-radius: 12px;
-    color: white;
+    color: black;
     padding: 16px 32px;
     text-decoration: none;
-    margin: 4px 2px;
+    margin: auto;
+    display: block;
+    width: 50%;
     cursor: pointer;
     transition-duration: 0.4s;
 }
@@ -39,11 +52,18 @@ input[type=button]:hover {
     color: white;
 }
 
-disabled {
-    opacity: 0.6;
+input[type=button]:disabled {
+    opacity: 0.4;
     cursor: not-allowed;
 }
 
-h1 {
+h1, h2, p {
     text-align: center;
-  }
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 12px;
+}
