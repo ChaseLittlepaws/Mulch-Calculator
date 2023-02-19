@@ -29,6 +29,7 @@ label {
 input{
     padding: 12px 20px;
     margin: auto;
+    border: none;
     box-sizing: border-box;
     border-radius: 12px;
     display: block;

@@ -74,11 +74,13 @@ function validateInput () {
     if (lengthFt > 0 && widthFt > 0 && depthIn > 0) {
         document.getElementById("button").value = "Calculate!";
         document.getElementById("button").style.opacity = "1";
+        document.getElementById("button").style.cursor = "auto"
         console.log("Valid data." + lengthFt + widthFt + depthIn);
         return true;
     } else {
         document.getElementById("button").value = "Invald input";
         document.getElementById("button").style.opacity = "0.25";
+        document.getElementById("button").style.cursor = "not-allowed"
         document.getElementById("outputHeader").hidden = true;
         document.getElementById("bookmarkPrompt").hidden = true;
         document.getElementById("outputPara").innerHTML = "Please enter values greater than zero for all inputs.";
