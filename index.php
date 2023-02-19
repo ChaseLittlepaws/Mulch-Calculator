@@ -25,7 +25,11 @@
 
 <h2 hidden id="outputHeader">Here are your results</h2>
 
-<p id="outputPara"></p>
+<p id="outputOne"></p>
+<p id="outputTwo"></p>
+<p id="outputThree"></p>
+<p id="outputFour"></p>
+<p id="outputFive"></p>
 
 <p hidden id="bookmarkPrompt">Feel free to bookmark this page! You can come back to these calculations any time!</p>
 </div>
@@ -83,11 +87,11 @@ function validateInput () {
     }
 }
 function getText () {
-    let resultsText = "Thank you for using our calculator. ";
-    resultsText += "You said your space is " + lengthFt + " feet long, " + widthFt + " feet wide, and " + depthIn + " inches deep. ";
-    resultsText += "The volume of that space is " + betterNumber(volumeCbYd) + " cubic yards. ";
-    resultsText += "You need to buy " + numberBags + " bags, as they cover " + bagSizeCbYd + " cubic yards each. ";
-    resultsText += "At $" + bagPriceUSD + " a bag, this will cost $" + betterNumber(totalPrice) + ". ";
+    document.getElementById("outputOne").innerHTML = "Thank you for using our calculator. ";
+    document.getElementById("outputTwo").innerHTML = "You said your space is " + lengthFt + " feet long, " + widthFt + " feet wide, and " + depthIn + " inches deep. ";
+    document.getElementById("outputThree").innerHTML = "The volume of that space is " + betterNumber(volumeCbYd) + " cubic yards. ";
+    document.getElementById("outputFour").innerHTML = "You need to buy " + numberBags + " bags, as they cover " + bagSizeCbYd + " cubic yards each. ";
+    document.getElementById("outputFive").innerHTML = "At $" + bagPriceUSD + " a bag, this will cost $" + betterNumber(totalPrice) + ". ";
     document.getElementById("outputHeader").hidden = false;
     document.getElementById("bookmarkPrompt").hidden = false
     return resultsText;
@@ -99,7 +103,7 @@ function calculator() {
         volumeCbYd = findVolumeSqYd(lengthFt, widthFt, depthIn);
         numberBags = findBags(volumeCbYd, bagSizeCbYd);
         totalPrice = findPrice(numberBags, bagPriceUSD)
-        document.getElementById("outputPara").innerHTML = getText();
+        getText();
     } else {
         console.log("Invalid data.");
     }

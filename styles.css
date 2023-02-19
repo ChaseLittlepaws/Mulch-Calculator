@@ -4,13 +4,19 @@ styles for my mulch calculator
 Chase Tramel aka Kasey Chase Littlepaws | https://github.com/ChaseLittlepaws
 */
 
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible;
+}
+
 body {
     margin: 0;
-    font-family: 'Atkinson Hyperlegible', sans-serif;
-    src: https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible;
+    font-family: 'Atkinson Hyperlegible';
     padding: 16px 32px;
     text-decoration: none;
     margin: 4px 2px;
+    margin: auto;
+    display: block;
 }
 
 label {
@@ -48,7 +54,7 @@ input[type=button] {
 }
 
 input[type=button]:hover {
-    background-color: rgb(0, 117, 156);
+    background-color: rgb(0, 191, 255);
     color: white;
 }
 
@@ -59,11 +65,15 @@ input[type=button]:disabled {
 
 h1, h2, p {
     text-align: center;
+    margin: 5px;
+    padding: 12px;
 }
 
 div {
+    max-width: 1000px;
     border-radius: 5px;
     background-color: #f2f2f2;
-    padding: 20px;
     border-radius: 12px;
+    margin: auto;
+    display: block;
 }
