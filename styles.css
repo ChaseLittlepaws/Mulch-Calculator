@@ -1,0 +1,49 @@
+
+/* 
+styles for my mulch calculator
+Chase Tramel aka Kasey Chase Littlepaws | https://github.com/ChaseLittlepaws
+*/
+
+body {
+    margin: 0;
+    font-family: "Atkinson Hyperlegible", sans-serif;
+}
+
+input {
+    width: 33%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+input:focus {
+    border: 5px solid #a7a7a7;
+}
+
+input[type=button]{
+    background-color: #5bb8ff;
+    width: 33%;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+input[type=button]:hover {
+    background-color: rgb(0, 117, 156);
+    color: white;
+}
+
+disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+h1 {
+    text-align: center;
+  }

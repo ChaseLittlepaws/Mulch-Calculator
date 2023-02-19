@@ -1,5 +1,7 @@
-//
-
+<?php
+# webpage-based mulch calculator
+# Chase Tramel aka Kasey Chase Littlepaws | https://github.com/ChaseLittlepaws
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +20,7 @@
     <input type="number" id="width" name="width"><br>
     <label for="depth">Depth in inches:</label><br>
     <input type="number" id="depth" name="depth"><br><br>
-    <input type="button" value="Calculate!" onclick="calculator()">
+    <input id="button" type="button" value="Calculate!" onmouseover="validateInput()" onclick="calculator()">
 </form>
 
 <h2 hidden id="outputHeader">Here are your results</h2>
@@ -44,7 +46,7 @@ const covertSqFt = 27;
 const bagSizeCbYd = .5;
 const bagPriceUSD = 10.99;
 
-function setInput(length, width, depth) {
+function setInput() {
     lengthFt = document.getElementById("length").value;
     widthFt = document.getElementById("width").value;
     depthIn = document.getElementById("depth").value;
@@ -63,10 +65,21 @@ function findPrice(bags, price){
 function betterNumber(number) {
     return Math.round(number * 100) / 100;
 }
+function validateInput () {
+    setInput();
+    if (lengthFt > 0 && widthFt > 0 && depthIn > 0) {
+        document.getElementById("buttom").innerHTML = "yeah";
+        document.getElementById("button").disabled = false;
+    } else {
+        document.getElementById("outputHeader").hidden = true;
+        document.getElementById("bookmarkPrompt").hidden = true;
+        document.getElementById("button").disabled = true;
+        document.getElementById("outputPara").innerHTML = "Please enter values greater than zero for all inputs.";
+    }
+}
+
 function invalidateInput () {
-    document.getElementById("outputHeader").hidden = true;
-    document.getElementById("bookmarkPrompt").hidden = true
-    document.getElementById("outputPara").innerHTML = "Please enter values greater than zero for all inputs.";
+   
 }
 function getText () {
     let resultsText = "Thank you for using our calculator. ";
@@ -78,7 +91,6 @@ function getText () {
     document.getElementById("bookmarkPrompt").hidden = false
     return resultsText;
 }
-
 function calculator() {
     setInput();
     if (lengthFt > 0 && widthFt > 0 && depthIn > 0) {
