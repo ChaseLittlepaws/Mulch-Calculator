@@ -96,11 +96,9 @@ function getText () {
     document.getElementById("outputFive").innerHTML = "At $" + bagPriceUSD + " a bag, this will cost $" + betterNumber(totalPrice) + ". ";
     document.getElementById("outputHeader").hidden = false;
     document.getElementById("bookmarkPrompt").hidden = false
-    return resultsText;
 }
 function calculator() {
     setInput();
-    validateInput();
     if (validateInput()) {
         volumeCbYd = findVolumeSqYd(lengthFt, widthFt, depthIn);
         numberBags = findBags(volumeCbYd, bagSizeCbYd);
